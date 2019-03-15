@@ -20,6 +20,7 @@ echo "In which zone do you want to build the cluster (e.g., us-west1-b):"
 read MY_GCP_ZONE
 
 gcloud config set account $GCP_EMAIL
+gcloud config set project $MY_GCP_PROJECT
 # Next command creates the cluster.
 # The app won't work if the machine type is smaller than an n1-standard-1.
 # This is set as an autoscaling group with init size of 4.
