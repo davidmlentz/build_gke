@@ -32,8 +32,8 @@ if [ $? -ne 0 ]; then
 else
 	gcloud container clusters get-credentials $MY_CLUSTER_NAME --zone $MY_GCP_ZONE --project $MY_GCP_PROJECT
 	kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin   --user="$(gcloud config get-value core/account)"
-	curl -L https://git.io/getLatestIstio | sh -
-	cd istio-1.1.0/
+	curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.6 sh -
+	cd istio-1.0.6/
 	export PATH=$PWD/bin:$PATH
 	kubectl apply -f install/kubernetes/istio-demo-auth.yaml
 	kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
