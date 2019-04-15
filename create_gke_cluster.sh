@@ -35,9 +35,9 @@ else
 	# The next 2 lines should be changed to manually download 1.1.3 if that's available. Sample lines follow
 	curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.6 sh -
 	cd istio-1.0.6/
-	# curl -L https://github.com/istio/istio/archive/1.1.3.tar.gz
-	# tar -xf 1.1.3.gz
-	# cd istio-1.1.3/
+	# curl -L https://github.com/istio/istio/releases/download/1.1.2/istio-1.1.2-osx.tar.gz -o 1.1.2.tar.gz
+	# tar -xzf 1.1.2.tar.gz
+	# cd istio-1.1.2/
 	export PATH=$PWD/bin:$PATH
 	kubectl apply -f install/kubernetes/istio-demo-auth.yaml
 	kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
