@@ -35,7 +35,7 @@ else
 	# The next 2 lines should be changed to manually download 1.1.3 if that's available. Sample lines follow
 	curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.6 sh -
 	cd istio-1.0.6/
-	# curl -L https://github.com/istio/istio/releases/download/1.1.3/istio-1.1.3-linux.tar.gz -o 1.1.3.gz
+	# curl -L https://github.com/istio/istio/archive/1.1.3.tar.gz
 	# tar -xf 1.1.3.gz
 	# cd istio-1.1.3/
 	export PATH=$PWD/bin:$PATH
