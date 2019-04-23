@@ -54,6 +54,10 @@ sed -i '' "s/%%TELEMETRY_IP%%/$TELEMETRY_IP/g" datadog-agent.yaml
 PROMETHEUS_IP=`kubectl get svc prometheus -n istio-system -o=json | grep '"clusterIP"' | sed 's/[^0-9.]//g'`
 sed -i '' "s/%%PROMETHEUS_IP%%/$PROMETHEUS_IP/g" datadog-agent.yaml
 
+kubectl create namespace istio-system
+helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl apply -f -
+helm template install/kubernetes/helm/istio --name istio --namespace istio-system --set pilot.traceSampling=100.0 --set global.proxy.tracer=datadog | kubectl apply -f -
+
 kubectl create --save-config -f datadog-agent.yaml
 
 sleep 2
