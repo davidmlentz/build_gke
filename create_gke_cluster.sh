@@ -22,9 +22,9 @@ read MY_GCP_ZONE
 gcloud config set account $GCP_EMAIL
 gcloud config set project $MY_GCP_PROJECT
 # Next command creates the cluster.
-# The app won't work if the machine type is smaller than an n1-standard-1.
+# The app won't work if the machine type is smaller than an n1-standard-2.
 # This is set as an autoscaling group with init size of 4.
-gcloud container clusters create $MY_CLUSTER_NAME --enable-autoscaling --min-nodes=4 --max-nodes=6 --machine-type=n1-standard-1 --num-nodes=4 --no-enable-legacy-authorization --project $MY_GCP_PROJECT --zone=$MY_GCP_ZONE --image-type ubuntu
+gcloud container clusters create $MY_CLUSTER_NAME --enable-autoscaling --min-nodes=4 --max-nodes=6 --machine-type=n1-standard-2 --num-nodes=4 --no-enable-legacy-authorization --project $MY_GCP_PROJECT --zone=$MY_GCP_ZONE --image-type ubuntu
 gcloud container clusters list > clusternames_data
 grep "$MY_CLUSTER_NAME" clusternames_data
 if [ $? -ne 0 ]; then
