@@ -57,7 +57,7 @@ sed -i '' "s/%%PROMETHEUS_IP%%/$PROMETHEUS_IP/g" datadog-agent.yaml
 kubectl create --save-config -f datadog-agent.yaml
 
 helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl apply -f -
-helm template install/kubernetes/helm/istio --name istio --namespace istio-system --set pilot.traceSampling=100.0 --set global.proxy.tracer=datadog | kubectl apply -f -
+helm template install/kubernetes/helm/istio --name istio --namespace istio-system --set pilot.traceSampling=100.0 --set global.proxy.tracer=datadog --values install/kubernetes/helm/istio/values-istio-demo-auth.yaml | kubectl apply -f -
 
 sleep 2
 
