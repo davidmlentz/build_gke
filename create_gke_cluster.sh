@@ -44,7 +44,7 @@ else
 fi
 rm -f clusternames_data
 
-curl https://gist.githubusercontent.com/davidmlentz/5d620644563d64d95adff8b36e90c500/raw/2b48837b8ec9da34a93f3b01cf93c56dc7e1a301/datadog-agent.yaml | sed "s/^\(.*\)value: <MY_DD_API_KEY>/\1value: $MY_DD_API_KEY/" > datadog-agent.yaml
+curl https://gist.githubusercontent.com/davidmlentz/5d620644563d64d95adff8b36e90c500/raw/7b4505938ee790454ae239bb7b296e66887139ed/datadog-agent.yaml | sed "s/^\(.*\)value: <MY_DD_API_KEY>/\1value: $MY_DD_API_KEY/" > datadog-agent.yaml
 
 while [ ! -f datadog-agent.yaml ]; do
         sleep 2
