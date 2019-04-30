@@ -36,7 +36,6 @@ else
 	cd istio-1.1.3/
 	export PATH=$PWD/bin:$PATH
 	kubectl apply -f install/kubernetes/istio-demo-auth.yaml
-	# kubectl label namespace istio-system istio-injection="enabled" --overwrite
 	kubectl label namespace default istio-injection="enabled" --overwrite
 	kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
 	kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
